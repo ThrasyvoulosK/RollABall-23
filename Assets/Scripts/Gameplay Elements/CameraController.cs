@@ -10,13 +10,13 @@ public class CameraController : MonoBehaviour
     void Start()
     {
         offset = transform.position - player.transform.position;
-        Debug.Log("Offset" + offset);
+        //Debug.Log("Offset" + offset);
     }
 
     // Update is called once per frame
     void LateUpdate()
     {
         transform.position = player.transform.position + offset;
-        Debug.Log("Camera Position: " + transform.position);
+        //Debug.Log("Camera Position: " + transform.position);
     }
 }

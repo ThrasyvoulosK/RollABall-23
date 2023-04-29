@@ -58,7 +58,8 @@ public class ScoreManager : MonoBehaviour,ICrossFadeHolder
     private IEnumerator SetScoreCoroutine(int points)
     {
         score += points;
-        DisplayScore(points);
+        //DisplayScore(points);
+        DisplayScore(score);
 
         //wait onee frame
         yield return null;
@@ -83,7 +84,7 @@ public class ScoreManager : MonoBehaviour,ICrossFadeHolder
     // Update is called once per frame
     void FixedUpdate()
     {
-        
+        //DisplayScore(PlayerPrefs.GetInt(SavedValues.SCORE, 0));
     }
 
     bool HasPlayerCollectedAllCollectibles()

@@ -15,8 +15,8 @@ public class EndGameMenu : MonoBehaviour, ICrossFadeHolder
     {
         EnableCrossFade();
 
-        retryButton = GetComponent<Button>();
-
+        retryButton = retryButton.GetComponent<Button>();
+        //Debug.Log(retryButton.gameObject.name);
         
 
         retryButton.onClick.AddListener(delegate
