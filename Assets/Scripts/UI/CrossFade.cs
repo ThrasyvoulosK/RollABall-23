@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class CrossFade : MonoBehaviour
 {
     public Animator crossFadeAnimator;
-    public float animationTime = 1f;
+    public float animationTime = 0f;
 
     public const string FadeIn = "FadeIn";
     public const string FadeOut = "FadeOut";
@@ -26,16 +26,19 @@ public class CrossFade : MonoBehaviour
     public IEnumerator MoveToNextScene()
     {
         crossFadeAnimator.SetTrigger(FadeIn);
+
         yield return new WaitForSeconds(animationTime);
 
         ScoreManager.levelScore = ScoreManager.score;
 
+        crossFadeAnimator.SetTrigger(FadeOut);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public IEnumerator MoveToScene(int index)
     {
         crossFadeAnimator.SetTrigger(FadeIn);
+
         yield return new WaitForSeconds(animationTime);
 
         ScoreManager.levelScore = ScoreManager.score;
