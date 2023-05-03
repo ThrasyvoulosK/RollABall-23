@@ -45,6 +45,7 @@ public class GameManager : MonoBehaviour
         if (scene.buildIndex==0||scene.buildIndex==4)
         {
             DestroyObjects<PauseMenu, ScoreManager>();
+            Destroy(FindObjectOfType<TimerManager>().gameObject);
 
             if (scene.buildIndex == 4)
             {

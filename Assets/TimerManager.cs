@@ -12,6 +12,10 @@ public class TimerManager : MonoBehaviour
     {
         timeText = GetComponentInChildren<TMP_Text>();
 
+        //reset timeText
+        time = 0;
+        timeText.text = "null";
+
         DontDestroyOnLoad(this.gameObject);
         
     }
