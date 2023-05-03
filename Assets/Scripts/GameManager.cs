@@ -42,11 +42,11 @@ public class GameManager : MonoBehaviour
     {
         
         //if main menu or win screen
-        if (scene.buildIndex==0||scene.buildIndex==3)
+        if (scene.buildIndex==0||scene.buildIndex==4)
         {
             DestroyObjects<PauseMenu, ScoreManager>();
 
-            if (scene.buildIndex == 3)
+            if (scene.buildIndex == 4)
             {
                 SavePlayerLevel(1);
 
