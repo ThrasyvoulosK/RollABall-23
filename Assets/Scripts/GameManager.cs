@@ -17,7 +17,11 @@ public class GameManager : MonoBehaviour
     private GameObject scoreCanvas;
 
     [SerializeField]
-    private GameObject pauseMenuCanvas;    
+    private GameObject pauseMenuCanvas;
+
+    public bool hasStartedFromLevelOne = false;
+    int zeroLevel = 0;
+    int endLevel = 4;
 
     private void Awake()
     {
@@ -42,12 +46,26 @@ public class GameManager : MonoBehaviour
     {
         
         //if main menu or win screen
-        if (scene.buildIndex==0||scene.buildIndex==4)
+        if (scene.buildIndex==zeroLevel||scene.buildIndex==endLevel)
         {
-            DestroyObjects<PauseMenu, ScoreManager>();
-            Destroy(FindObjectOfType<TimerManager>().gameObject);
+            Debug.Log("init "+ScoreManager.score);
 
-            if (scene.buildIndex == 4)
+            if((scene.buildIndex == endLevel)&&hasStartedFromLevelOne)
+                FindObjectOfType<EndGameMenu>().scoreBox.text = "Score\n" + ScoreManager.score;
+
+            DestroyObjects<PauseMenu, ScoreManager>();
+
+            if (hasStartedFromLevelOne)
+            {
+                SavedValues.TIME = FindObjectOfType<TimerManager>().timeText.text;
+                Destroy(FindObjectOfType<TimerManager>().gameObject);
+                //reset value
+                //hasStartedFromLevelOne = false;
+
+                
+            }
+
+            if (scene.buildIndex == endLevel)
             {
                 SavePlayerLevel(1);
 
@@ -97,7 +115,7 @@ public class GameManager : MonoBehaviour
     }
     void SavePlayerScore(int level)
     {
-        if(level==3)
+        if(level==endLevel)
         {
             ScoreManager.levelScore = 0;
             ScoreManager.score = 0;

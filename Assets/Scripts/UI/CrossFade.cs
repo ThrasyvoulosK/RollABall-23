@@ -37,13 +37,22 @@ public class CrossFade : MonoBehaviour
 
     public IEnumerator MoveToScene(int index)
     {
+        Debug.Log("MoveToScene " + index);
+        //if starting from level one, set boolean
+        GameManager gameManager = FindObjectOfType<GameManager>();
+        if (index == 1)
+            gameManager.hasStartedFromLevelOne = true;
+        else
+            gameManager.hasStartedFromLevelOne = false;
+        Debug.Log(gameManager.hasStartedFromLevelOne);
+
         crossFadeAnimator.SetTrigger(FadeIn);
 
         yield return new WaitForSeconds(animationTime);
 
         ScoreManager.levelScore = ScoreManager.score;
 
-        SceneManager.LoadScene(index);
+        SceneManager.LoadScene(index);        
     }
 
 }

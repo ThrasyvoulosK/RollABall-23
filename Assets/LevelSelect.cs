@@ -17,7 +17,7 @@ public class LevelSelect : MonoBehaviour
         //crossFade=GetComponentInChildren<CrossFade>(true);
 
         int totalLevels = gameObject.transform.childCount;
-        Debug.Log(totalLevels);
+        //Debug.Log(totalLevels);
         int i = 1;
         for ( i=1;i<=totalLevels; i++)
         {

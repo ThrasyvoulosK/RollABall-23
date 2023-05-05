@@ -8,5 +8,6 @@ public static class SavedValues
     public static int CURRENT_LEVEL = 1;
 
     public static string SCORE = "SCORE";
+    public static string TIME = "TIME";
 
 }

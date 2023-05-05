@@ -58,6 +58,7 @@ public class ScoreManager : MonoBehaviour,ICrossFadeHolder
     private IEnumerator SetScoreCoroutine(int points)
     {
         score += points;
+        Debug.Log(score);
         //DisplayScore(points);
         DisplayScore(score);
 
